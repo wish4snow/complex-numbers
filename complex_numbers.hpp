@@ -13,10 +13,11 @@ class ComplexNumber {
 		ComplexNumber subtract(ComplexNumber one, ComplexNumber two);
 		ComplexNumber multiply(ComplexNumber one, ComplexNumber two);
 		ComplexNumber divide(ComplexNumber one, ComplexNumber two);
-		ComplexNumber negate(ComplexNumber one, ComplexNumber two);
-		ComplexNumber magnitude(ComplexNumber one, ComplexNumber two);
-		ComplexNumber conjugation(ComplexNumber one, ComplexNumber two);
-		ComplexNumber findReal(ComplexNumber one, ComplexNumber two);
-		ComplexNumber findImaginary(ComplexNumber one, ComplexNumber two);
+		ComplexNumber negate(ComplexNumber one);
+		ComplexNumber magnitude(ComplexNumber one);
+		ComplexNumber conjugation(ComplexNumber one);
+		
+		float findReal(ComplexNumber one);
+		float findImaginary(ComplexNumber one);
 
 };
