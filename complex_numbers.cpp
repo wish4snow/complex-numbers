@@ -2,11 +2,12 @@
 #include <cmath>
 #include "complex_numbers.hpp"
 using namespace std;
-
+/*
 ComplexNumber::ComplexNumber(float realNumber, float imaginaryNumber) {
 	this->realNumber = realNumber;
 	this->imaginaryNumber = imaginaryNumber;
 }
+*/
 
 float ComplexNumber::findReal(ComplexNumber one) {
 	return realNumber;
@@ -49,6 +50,11 @@ float ComplexNumber::magnitude (ComplexNumber one) {
 	return sqrt((abs(findReal(one) * findReal(one)) + abs(findImaginary(one) * findImaginary(one))));
 }
 
-ComplexNumber ComplexNumber::conjugation( (ComplexNumber one) {
+ComplexNumber ComplexNumber::conjugation(ComplexNumber one) {
 	return ComplexNumber(findReal(one), findImaginary(one) * -1);
 }
+
+
+
+
+
