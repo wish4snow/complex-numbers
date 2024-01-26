@@ -2,59 +2,70 @@
 #include <cmath>
 #include "complex_numbers.hpp"
 using namespace std;
-/*
+
+
+// ComplexNumber(float realNumber, float imaginaryNumber) {
+// 	this->realNumber = realNumber;
+// 	this->imaginaryNumber = imaginaryNumber;
+// }
 ComplexNumber::ComplexNumber(float realNumber, float imaginaryNumber) {
 	this->realNumber = realNumber;
 	this->imaginaryNumber = imaginaryNumber;
 }
-*/
 
-float ComplexNumber::findReal(ComplexNumber one) {
+ComplexNumber::ComplexNumber() {
+	realNumber = 0;
+	imaginaryNumber = 0;
+}
+
+float ComplexNumber::findReal() {
 	return realNumber;
 }
 
-float ComplexNumber::findImaginary(ComplexNumber one) {
+float ComplexNumber::findImaginary() {
 	return imaginaryNumber;
 }
 
-ComplexNumber ComplexNumber::add (ComplexNumber one, ComplexNumber two) {
+ComplexNumber ComplexNumber::add (ComplexNumber two) {
 	
-	return ComplexNumber(findReal(one) + findReal(two), findImaginary(one) + findImaginary(two));
+	return ComplexNumber(realNumber + two.findReal(), imaginaryNumber + two.findImaginary());
 }
 
-ComplexNumber ComplexNumber::subtract (ComplexNumber one, ComplexNumber two) {
+ComplexNumber ComplexNumber::subtract (ComplexNumber two) {
 	
-	return ComplexNumber(findReal(one) - findReal(two), findImaginary(two) - findImaginary(two));
+	return ComplexNumber(realNumber - two.findReal(), imaginaryNumber - two.findImaginary());
 }
 
-ComplexNumber ComplexNumber::multiply (ComplexNumber one, ComplexNumber two) {
-	float realPart = (findReal(one) * findReal(two)) - (findImaginary(one) * findImaginary(two));
-	float imaginaryPart = (findReal(one) * findImaginary(two)) + (findReal(two) * findImaginary(one));
+ComplexNumber ComplexNumber::multiply (ComplexNumber two) {
+	float realPart = (realNumber * two.findReal()) - (imaginaryNumber * two.findImaginary());
+	float imaginaryPart = (realNumber * two.findImaginary()) + (two.findReal() * imaginaryNumber);
 	
 	return ComplexNumber(realPart, imaginaryPart);
 }
 
-ComplexNumber ComplexNumber::divide (ComplexNumber one, ComplexNumber two) {
-	float realPart = ((findReal(one) * findReal(two)) + (findImaginary(one) * findImaginary(two))) / ((findReal(two) * findReal(two)) + (findImaginary(two) * findImaginary(two)));
-	float imaginaryPart = ((findReal(one) * findImaginary(two)) - (findImaginary(one) * findReal(two))) / ((findReal(two) * findReal(two)) + (findImaginary(two) * findImaginary(two)));
+ComplexNumber ComplexNumber::divide (ComplexNumber two) {
+	float realPart = ((realNumber * two.findReal()) + (imaginaryNumber * two.findImaginary())) / ((two.findReal() * two.findReal()) + (two.findImaginary() * two.findImaginary()));
+	float imaginaryPart = ((realNumber * two.findImaginary()) - (imaginaryNumber * two.findReal())) / ((two.findReal() * two.findReal()) + (two.findImaginary() * two.findImaginary()));
 
 	return ComplexNumber(realPart, imaginaryPart);
 }
 
-ComplexNumber ComplexNumber::negate (ComplexNumber one) {
+ComplexNumber ComplexNumber::negate () {
 
-return ComplexNumber((findReal(one) * -1), (findImaginary(one) * -1));
+return ComplexNumber((realNumber * -1), (imaginaryNumber * -1));
 }
 
-float ComplexNumber::magnitude (ComplexNumber one) {
-	return sqrt((abs(findReal(one) * findReal(one)) + abs(findImaginary(one) * findImaginary(one))));
+float ComplexNumber::magnitude () {
+	return sqrt((abs(realNumber * realNumber) + abs(imaginaryNumber * imaginaryNumber)));
 }
 
-ComplexNumber ComplexNumber::conjugation(ComplexNumber one) {
-	return ComplexNumber(findReal(one), findImaginary(one) * -1);
+ComplexNumber ComplexNumber::conjugation() {
+	return ComplexNumber(realNumber, imaginaryNumber * -1);
 }
 
-
+void ComplexNumber::pretty_print () {
+	cout << realNumber << " + " << imaginaryNumber << "i" << endl;;
+}
 
 
 

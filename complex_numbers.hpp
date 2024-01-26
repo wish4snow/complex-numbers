@@ -1,31 +1,34 @@
-
-
 class ComplexNumber {
 	private:
 		float realNumber;
 		float imaginaryNumber;
 
 	public:
-		ComplexNumber(float realNumber, float imaginaryNumber) {
-	this->realNumber = realNumber;
-	this->imaginaryNumber = imaginaryNumber;
-}
-				ComplexNumber(){
-		realNumber = 0;
-	imaginaryNumber = 0;
-}
 
+		ComplexNumber(float, float);
+		ComplexNumber();
 
-		ComplexNumber add(ComplexNumber one, ComplexNumber two);
-		ComplexNumber subtract(ComplexNumber one, ComplexNumber two);
-		ComplexNumber multiply(ComplexNumber one, ComplexNumber two);
-		ComplexNumber divide(ComplexNumber one, ComplexNumber two);
+		ComplexNumber add(ComplexNumber);
+		ComplexNumber subtract(ComplexNumber);
+		ComplexNumber multiply(ComplexNumber);
+		ComplexNumber divide(ComplexNumber);
 		
-		ComplexNumber negate(ComplexNumber one);
-		ComplexNumber conjugation(ComplexNumber one);
+		ComplexNumber negate();
+		ComplexNumber conjugation();
 
-		float findReal(ComplexNumber one);
-		float findImaginary(ComplexNumber one);
-		float magnitude(ComplexNumber one);
+		float findReal();
+		float findImaginary();
+		float magnitude();
 
+		void pretty_print();
+
+};
+
+class ComplexList {
+	private:
+		ComplexNumber elements[];
+
+	public:
+		ComplexList(ComplexNumber[]);
+		//ComplexList();
 };
