@@ -3,7 +3,7 @@ using namespace std;
 
 class ComplexNumber {
 	private:
-		float realNumber{};
-		float imaginaryNumber{};
+		float realNumber;
+		float imaginaryNumber;
 
-}
+};
