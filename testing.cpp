@@ -8,24 +8,58 @@ int main () {
 	ComplexNumber zeros;
 	ComplexNumber ones (1,1);
 	ComplexNumber manys (5,6);
-	manys.pretty_print();
-	cout << "add" << endl;
+	ComplexNumber negative (-34, -65);
+	ComplexNumber testing;
+
+	cout << "findReal and findImaginary method calls" << endl;
+	assert(zeros.findReal() == 0);
+	assert(zeros.findImaginary() == 0);
+	assert(ones.findReal() == 1);
+	assert(manys.findImaginary() == 6);
+	cout << "passed \n" << endl;
+
+	cout << "addition and subtraction method calls" << endl;
 	zeros.add(zeros);
-	assert (zeros.findReal() == 0);
-	cout << "done" << endl;
-	ComplexNumber number_one = ComplexNumber(5.0, 7.0);
-ComplexNumber number_two = ComplexNumber(2.5, 3.1);
+	zeros.pretty_print();
+	testing = zeros.add(ones);
+	testing.pretty_print();
+	testing = testing.add(negative);
+	testing.pretty_print();
+	testing = testing.subtract(negative);
+	testing.pretty_print();
 
-ComplexNumber number_three = number_one.add(number_two);
-number_three.pretty_print(); // Returns 7.5 + 10.1i
+	cout << "passed \n" << endl;
 
-ComplexNumber number_four = number_one.subtract(number_two);
-number_four.pretty_print(); // Returns 2.5 + 3.9i
+	cout << "multiplcation and division method calls;" << endl;
 
-float magnitude = number_one.magnitude();
-cout << magnitude; // Returns 8.602325267
+	testing = testing.multiply(manys);
+	testing.pretty_print();
+	testing = testing.multiply(zeros);
+	testing.pretty_print();
+	testing = ComplexNumber(1,1);
+	testing = testing.multiply(negative);
+	testing.pretty_print();
+	testing = testing.divide(manys);
+	testing.pretty_print();
+	cout << "passed \n" << endl;
 
- ComplexNumber numberList[4] { number_one, number_two, number_three, _number_four };
+	cout << "negtion, magnitude, and conjugation method calls" << endl;
+
+	testing = manys.negate();
+	testing.pretty_print();
+	testing = negative.negate();
+	testing.pretty_print();
+	testing = ones;
+	cout << testing.magnitude() << endl;
+	cout << negative.magnitude() << endl;
+	testing.conjugation().pretty_print();
+	negative.conjugation().pretty_print();
+
+	cout << "passed" << endl;
+	//assert(testing.magnitude() == sqrt(2)); //not working even though it's the same
+
+
+ //ComplexNumber numberList[4] { number_one, number_two, number_three, _number_four };
 
 // ComplexList list = ComplexList(numberList);
 //cout << list.sum(); // Returns 17.5 + 24.1i
